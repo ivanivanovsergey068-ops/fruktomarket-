@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ФруктоМаркет — Интернет-магазин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#16a34a;--gd:#15803d;--gl:#dcfce7;--o:#f97316;--dark:#172117;--muted:#6b756b;--bg:#f7faf6;--card:#fff;--line:#e5e9e5;--danger:#dc2626;--shadow:0 8px 30px #17211712}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--dark);line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:50;background:#ffffffeb;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.header{max-width:1280px;margin:auto;padding:13px 20px;display:flex;align-items:center;gap:18px}.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--g);white-space:nowrap}.logo span{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#22c55e,#15803d);display:grid;place-items:center;color:#fff;font-size:23px}.nav{display:flex;gap:4px}.nav button{border:0;background:transparent;padding:9px 13px;border-radius:10px;font-weight:600;color:var(--dark)}.nav button:hover{background:var(--gl);color:var(--g)}.search{flex:1;position:relative;min-width:120px}.search input{width:100%;padding:11px 14px 11px 39px;border:2px solid var(--line);border-radius:13px;background:#f5f7f4;outline:none}.search input:focus{border-color:var(--g);background:#fff}.search b{position:absolute;left:14px;top:10px}.actions{display:flex;gap:8px}.icon,.cart{border:0;border-radius:12px;padding:11px 13px;background:#f1f4f0;font-weight:700}.cart{background:var(--dark);color:#fff}.badge{background:var(--o);border-radius:20px;padding:2px 7px;font-size:11px;margin-left:4px}
+.hero,.section{max-width:1280px;margin:auto;padding:28px 20px}.heroBox{min-height:370px;border-radius:30px;padding:55px;display:flex;align-items:center;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,#065f46,#059669,#22c55e)}.heroBox:after{content:"🍎  🍊  🍋  🍇  🍓  🍑  🥝  🍌";position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:55px;line-height:1.8;opacity:.22;width:48%}.heroContent{position:relative;z-index:2;max-width:620px}.pill{display:inline-block;background:#ffffff25;border:1px solid #ffffff40;border-radius:30px;padding:7px 14px;font-size:13px;font-weight:700;margin-bottom:18px}.hero h1{font-size:clamp(35px,5vw,58px);line-height:1.04;margin-bottom:15px;letter-spacing:-2px}.hero p{font-size:17px;opacity:.9;margin-bottom:25px}.btn{border:0;border-radius:12px;padding:13px 19px;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-1px)}.primary{background:var(--g);color:#fff}.white{background:#fff;color:var(--gd)}.outline{background:transparent;border:1px solid #ffffff55;color:#fff}.heroStats{display:flex;gap:38px;margin-top:30px;padding-top:22px;border-top:1px solid #ffffff40}.heroStats strong{font-size:25px;display:block}.heroStats small{opacity:.8}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.feature{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;gap:13px;align-items:center}.feature i{font-style:normal;font-size:28px;background:var(--gl);padding:10px;border-radius:13px}.feature b{display:block;font-size:14px}.feature small{color:var(--muted)}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:22px}.section h2{font-size:30px;letter-spacing:-1px}.sub{color:var(--muted);font-size:14px}.cats{display:flex;gap:9px;overflow:auto;padding-bottom:8px;margin-bottom:25px}.cat{white-space:nowrap;border:2px solid var(--line);background:#fff;border-radius:30px;padding:10px 17px;font-weight:600}.cat.active,.cat:hover{background:var(--dark);border-color:var(--dark);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:19px}.card{background:#fff;border:1px solid #e8ece8;border-radius:19px;overflow:hidden;box-shadow:var(--shadow);transition:.25s}.card:hover{transform:translateY(-4px)}.pic{height:205px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);display:grid;place-items:center;font-size:100px;position:relative}.fav{position:absolute;right:12px;top:12px;border:0;background:#fff;width:38px;height:38px;border-radius:50%;font-size:19px}.fav.on{color:#ef4444}.info{padding:17px}.catText{font-size:10px;color:var(--g);font-weight:800;text-transform:uppercase;letter-spacing:1px}.info h3{font-size:18px;margin:3px 0}.desc{font-size:12px;color:var(--muted);min-height:36px}.rating{font-size:12px;margin:10px 0;color:#f59e0b}.rating span{color:var(--muted)}.foot{display:flex;justify-content:space-between;align-items:center;gap:8px}.price{font-size:21px;font-weight:800}.price small{font-size:12px;color:var(--muted)}.add{width:43px;height:43px;border:0;border-radius:11px;background:var(--dark);color:#fff;font-size:23px}.add:hover{background:var(--g)}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}.stars{color:#f59e0b}.review p{margin:12px 0;color:#394339}.person{font-weight:700}
+.news{background:linear-gradient(135deg,#fef3c7,#fed7aa);border-radius:25px;padding:45px;text-align:center}.news h2{font-size:30px}.news p{margin:7px 0 20px;color:#78350f}.news form{display:flex;max-width:470px;margin:auto;gap:8px}.news input{flex:1;padding:13px;border:0;border-radius:11px;outline:0}
+footer{background:#172117;color:#fff;margin-top:20px}.footer{max-width:1280px;margin:auto;padding:35px 20px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer small{color:#b8c2b8}
+
+.overlay{position:fixed;inset:0;background:#0008;z-index:100;opacity:0;visibility:hidden;transition:.25s}.overlay.open{opacity:1;visibility:visible}.drawer{position:fixed;right:-480px;top:0;width:min(480px,100vw);height:100%;background:#fff;z-index:101;display:flex;flex-direction:column;transition:.3s}.drawer.open{right:0}.drawerHead{padding:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.drawerHead button,.close{border:0;background:#f2f4f1;width:39px;height:39px;border-radius:10px;font-size:19px}.cartItems{flex:1;overflow:auto;padding:10px 20px}.empty{text-align:center;color:var(--muted);padding:70px 15px}.cartItem{display:flex;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}.cartEmoji{width:62px;height:62px;border-radius:12px;background:var(--gl);display:grid;place-items:center;font-size:34px}.cartInfo{flex:1}.cartInfo b{display:block}.cartInfo small{color:var(--g);font-weight:700}.qty{display:flex;align-items:center;gap:5px;margin-top:7px}.qty button{border:0;background:#f0f2ef;width:27px;height:27px;border-radius:7px;font-weight:800}.remove{border:0;background:transparent;color:#999;font-size:18px}.cartFoot{padding:20px;border-top:1px solid var(--line);background:#fafcf9}.sum{display:flex;justify-content:space-between;margin-bottom:8px}.total{font-size:20px;font-weight:800;padding-top:10px;border-top:2px solid var(--line);margin-top:8px}.checkout{width:100%;padding:15px;border:0;border-radius:12px;background:var(--dark);color:#fff;font-weight:800;margin-top:13px}
+.modal{position:fixed;inset:0;z-index:200;background:#0008;display:none;align-items:center;justify-content:center;padding:15px}.modal.show{display:flex}.modalBox{background:#fff;border-radius:20px;width:min(900px,100%);max-height:92vh;overflow:auto;padding:25px}.modalTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field input,.field select,.field textarea{padding:12px;border:2px solid var(--line);border-radius:10px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--g)}.formActions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.error{color:var(--danger);font-size:13px;margin-top:10px;display:none}.notice{padding:12px;border-radius:10px;background:var(--gl);color:var(--gd);font-size:13px;margin-bottom:15px}
+.admin{display:none}.admin.show{display:block}.adminNav{background:#172117;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}.adminBody{max-width:1280px;margin:auto;padding:25px 20px}.adminGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}.stat{background:#fff;border:1px solid var(--line);padding:20px;border-radius:15px}.stat small{color:var(--muted)}.stat strong{font-size:27px;display:block;margin-top:4px}.adminPanel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px;margin-bottom:20px}.adminActions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.tableWrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:700px}.table th,.table td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:13px}.table th{background:#f6f8f5}.smallBtn{border:0;border-radius:8px;padding:7px 10px;font-size:12px;font-weight:700}.edit{background:#e0f2fe;color:#0369a1}.del{background:#fee2e2;color:#b91c1c}.logout{background:#fff;color:#172117;border:0;border-radius:9px;padding:9px 13px;font-weight:700}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,100px);background:#172117;color:#fff;padding:13px 20px;border-radius:12px;z-index:500;transition:.3s;font-size:13px}.toast.show{transform:translate(-50%,0)}
+@media(max-width:900px){.nav{display:none}.features{grid-template-columns:1fr 1fr}.testimonials{grid-template-columns:1fr}.heroBox{padding:38px 28px}.heroBox:after{opacity:.12}.adminGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.header{gap:8px}.logo strong{display:none}.search{order:3;flex-basis:100%}.header{flex-wrap:wrap}.hero,.section{padding-left:14px;padding-right:14px}.heroBox{border-radius:22px;padding:32px 22px;min-height:420px}.heroStats{gap:20px}.features{grid-template-columns:1fr}.formGrid{grid-template-columns:1fr}.field.full{grid-column:auto}.news{padding:30px 18px}.news form{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div id="shop">
+<header><div class="header">
+<a class="logo" href="#"><span>🍎</span><strong>ФруктоМаркет</strong></a>
+<nav class="nav"><button onclick="scrollToId('products')">Каталог</button><button onclick="scrollToId('about')">О нас</button><button onclick="scrollToId('reviews')">Отзывы</button></nav>
+<div class="search"><b>⌕</b><input id="search" placeholder="Поиск фруктов..." oninput="renderProducts()"></div>
+<div class="actions"><button class="icon" onclick="openLogin()" title="Админ-панель">⚙️</button><button class="cart" onclick="openCart()">🛒 <span class="badge" id="cartCount">0</span></button></div>
+</div></header>
+
+<section class="hero"><div class="heroBox"><div class="heroContent">
+<span class="pill">🌱 Свежие продукты каждый день</span><h1>Фрукты, которые хочется есть</h1><p>Отборные свежие фрукты с доставкой прямо к вашей двери.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn white" onclick="scrollToId('products')">Смотреть каталог →</button><button class="btn outline" onclick="openCart()">Моя корзина</button></div>
+<div class="heroStats"><div><strong id="heroProducts">12+</strong><small>видов фруктов</small></div><div><strong>24/7</strong><small>приём заказов</small></div><div><strong>100%</strong><small>свежесть</small></div></div>
+</div></div>
+<div class="features">
+<div class="feature"><i>🚚</i><div><b>Быстрая доставка</b><small>По вашему адресу</small></div></div>
+<div class="feature"><i>🍃</i><div><b>Свежие фрукты</b><small>От проверенных поставщиков</small></div></div>
+<div class="feature"><i>💳</i><div><b>Удобная оплата</b><small>При получении</small></div></div>
+<div class="feature"><i>🔄</i><div><b>Гарантия качества</b><small>Заменим плохой товар</small></div></div>
+</div></section>
+
+<section class="section" id="products"><div class="sectionHead"><div><h2>Наш каталог</h2><div class="sub">Выбирайте свежие фрукты</div></div><select id="sort" onchange="renderProducts()" style="padding:10px;border:2px solid var(--line);border-radius:10px"><option value="default">По популярности</option><option value="priceAsc">Сначала дешевле</option><option value="priceDesc">Сначала дороже</option><option value="name">По названию</option></select></div>
+<div class="cats" id="categories"></div><div class="grid" id="productsGrid"></div></section>
+
+<section class="section" id="reviews"><div class="sectionHead"><div><h2>Отзывы покупателей</h2><div class="sub">Что говорят наши клиенты</div></div></div><div class="testimonials">
+<div class="review"><div class="stars">★★★★★</div><p>«Фрукты приехали свежими и красиво упакованными. Обязательно закажу ещё.»</p><div class="person">Мадина</div><small class="sub">Постоянный клиент</small></div>
+<div class="review"><div class="stars">★★★★★</div><p>«Удобный магазин и быстрая доставка. Особенно понравились яблоки и виноград.»</p><div class="person">Фарид</div><small class="sub">Покупатель</small></div>
+<div class="review"><div class="stars">★★★★★</div><p>«Заказ оформил за пару минут. Всё получил в хорошем состоянии.»</p><div class="person">Зарина</div><small class="sub">Покупатель</small></div>
+</div></section>
+
+<section class="section" id="about"><div class="news"><h2>Получайте новости и скидки 🍊</h2><p>Подпишитесь на наши предложения.</p><form onsubmit="subscribe(event)"><input id="email" type="email" placeholder="Ваш email" required><button class="btn primary">Подписаться</button></form></div></section>
+<footer><div class="footer"><div><b>🍎 ФруктоМаркет</b><br><small>Свежие фрукты с доставкой</small></div><small>© 2026 ФруктоМаркет. Все права защищены.</small></div></footer>
+</div>
+
+<div id="admin" class="admin">
+<div class="adminNav"><b>⚙️ ФруктоМаркет — Админ-панель</b><button class="logout" onclick="logout()">Выйти</button></div>
+<div class="adminBody">
+<div class="adminGrid">
+<div class="stat"><small>Товаров</small><strong id="aProducts">0</strong></div><div class="stat"><small>Заказов</small><strong id="aOrders">0</strong></div><div class="stat"><small>Продажи</small><strong id="aSales">0 сом</strong></div><div class="stat"><small>Подписчиков</small><strong id="aSubs">0</strong></div>
+</div>
+<div class="adminPanel"><div class="sectionHead"><div><h2>Управление товарами</h2><div class="sub">Добавляйте, изменяйте и удаляйте товары.</div></div><button class="btn primary" onclick="openProductForm()">＋ Добавить товар</button></div>
+<div class="tableWrap"><table class="table"><thead><tr><th>Товар</th><th>Категория</th><th>Цена</th><th>Остаток</th><th>Действия</th></tr></thead><tbody id="adminProducts"></tbody></table></div></div>
+<div class="adminPanel"><div class="sectionHead"><div><h2>Заказы</h2><div class="sub">Заказы, оформленные покупателями.</div></div></div><div class="tableWrap"><table class="table"><thead><tr><th>№</th><th>Дата</th><th>Клиент</th><th>Телефон</th><th>Сумма</th><th>Статус</th></tr></thead><tbody id="ordersTable"></tbody></table></div></div>
+</div></div>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="cart"><div class="drawerHead"><h2>🛒 Корзина</h2><button onclick="closeCart()">×</button></div><div class="cartItems" id="cartItems"></div><div class="cartFoot"><div class="sum"><span>Товары</span><b id="subtotal">0 сом</b></div><div class="sum"><span>Доставка</span><b id="delivery">0 сом</b></div><div class="sum total"><span>Итого</span><b id="total">0 сом</b></div><button class="checkout" onclick="openCheckout()">Оформить заказ →</button></div></aside>
+
+<div class="modal" id="loginModal"><div class="modalBox" style="max-width:430px"><div class="modalTop"><h2>🔐 Вход администратора</h2><button class="close" onclick="closeModal('loginModal')">×</button></div><div class="notice">Демо-доступ для владельца сайта. После входа вы сможете управлять товарами и заказами.</div><div class="field"><label>Логин</label><input id="adminLogin" value="admin"></div><br><div class="field"><label>Пароль</label><input id="adminPass" type="password" placeholder="Введите пароль"></div><div id="loginError" class="error">Неверный логин или пароль.</div><div class="formActions"><button class="btn primary" onclick="login()">Войти в админ-панель</button></div></div></div>
+
+<div class="modal" id="productModal"><div class="modalBox" style="max-width:650px"><div class="modalTop"><h2 id="productFormTitle">Добавить товар</h2><button class="close" onclick="closeModal('productModal')">×</button></div><input type="hidden" id="editId"><div class="formGrid">
+<div class="field"><label>Название</label><input id="pName" placeholder="Например: Манго"></div><div class="field"><label>Категория</label><select id="pCat"><option>Цитрусовые</option><option>Яблоки</option><option>Ягоды</option><option>Тропические</option><option>Виноград</option><option>Другие</option></select></div>
+<div class="field"><label>Цена, сом</label><input id="pPrice" type="number" min="0"></div><div class="field"><label>Остаток, шт.</label><input id="pStock" type="number" min="0"></div>
+<div class="field"><label>Эмодзи товара</label><input id="pEmoji" placeholder="🥭"></div><div class="field"><label>Рейтинг</label><input id="pRating" type="number" min="1" max="5" step=".1" value="5"></div>
+<div class="field full"><label>Описание</label><textarea id="pDesc" rows="3" placeholder="Короткое описание товара"></textarea></div>
+</div><div class="formActions"><button class="btn" onclick="closeModal('productModal')">Отмена</button><button class="btn primary" onclick="saveProduct()">Сохранить товар</button></div></div></div>
+
+<div class="modal" id="checkoutModal"><div class="modalBox" style="max-width:600px"><div class="modalTop"><h2>📦 Оформление заказа</h2><button class="close" onclick="closeModal('checkoutModal')">×</button></div><div class="notice">После оформления заказ появится в вашей админ-панели.</div><div class="formGrid"><div class="field"><label>Имя</label><input id="cName" required></div><div class="field"><label>Телефон</label><input id="cPhone" placeholder="+992 ..." required></div><div class="field full"><label>Адрес доставки</label><textarea id="cAddress" rows="3" required></textarea></div><div class="field"><label>Способ оплаты</label><select id="cPayment"><option>При получении</option><option>Наличными</option><option>Переводом</option></select></div></div><div class="formActions"><button class="btn primary" onclick="placeOrder()">Подтвердить заказ</button></div></div></div>
+
+<div class="toast" id="toast"></div>
+<script>
+const KEY='fruktomarket_v3';
+const defaultProducts=[
+{id:1,name:'Яблоки Голден',cat:'Яблоки',price:28,stock:80,emoji:'🍎',rating:4.9,desc:'Сочные сладкие яблоки премиум-класса'},
+{id:2,name:'Апельсины',cat:'Цитрусовые',price:32,stock:70,emoji:'🍊',rating:4.8,desc:'Ароматные и сочные апельсины'},
+{id:3,name:'Бананы',cat:'Тропические',price:25,stock:90,emoji:'🍌',rating:4.9,desc:'Спелые бананы для всей семьи'},
+{id:4,name:'Виноград',cat:'Виноград',price:45,stock:45,emoji:'🍇',rating:4.9,desc:'Сладкий зелёный виноград без косточек'},
+{id:5,name:'Клубника',cat:'Ягоды',price:65,stock:35,emoji:'🍓',rating:4.7,desc:'Свежая ароматная клубника'},
+{id:6,name:'Персики',cat:'Другие',price:50,stock:40,emoji:'🍑',rating:4.8,desc:'Мягкие сочные персики'},
+{id:7,name:'Киви',cat:'Тропические',price:38,stock:55,emoji:'🥝',rating:4.8,desc:'Свежие киви с приятной кислинкой'},
+{id:8,name:'Лимоны',cat:'Цитрусовые',price:30,stock:60,emoji:'🍋',rating:4.9,desc:'Яркие ароматные лимоны'},
+{id:9,name:'Арбуз',cat:'Другие',price:70,stock:25,emoji:'🍉',rating:4.8,desc:'Сладкий сочный сезонный арбуз'},
+{id:10,name:'Ананас',cat:'Тропические',price:85,stock:30,emoji:'🍍',rating:4.9,desc:'Спелый ароматный ананас'},
+{id:11,name:'Черника',cat:'Ягоды',price:75,stock:25,emoji:'🫐',rating:4.9,desc:'Нежная свежая черника'},
+{id:12,name:'Груши',cat:'Другие',price:35,stock:65,emoji:'🍐',rating:4.8,desc:'Сочные сладкие груши'}
+];
+let data=JSON.parse(localStorage.getItem(KEY)||'null')||{products:defaultProducts,cart:{},orders:[],subs:[]};
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function money(n){return Math.round(n)+' сом'}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
+function scrollToId(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+function categories(){let cats=['Все',...new Set(data.products.map(p=>p.cat))];document.getElementById('categories').innerHTML=cats.map((c,i)=>`<button class="cat ${i===0?'active':''}" onclick="filterCat(this,${JSON.stringify(c)})">${c}</button>`).join('')}
+let activeCat='Все';
+function filterCat(btn,c){activeCat=c;document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderProducts()}
+function renderProducts(){
+let q=document.getElementById('search').value.toLowerCase(),sort=document.getElementById('sort').value;
+let a=data.products.filter(p=>(activeCat==='Все'||p.cat===activeCat)&&(p.name+' '+p.cat+' '+p.desc).toLowerCase().includes(q));
+if(sort==='priceAsc')a.sort((x,y)=>x.price-y.price);if(sort==='priceDesc')a.sort((x,y)=>y.price-x.price);if(sort==='name')a.sort((x,y)=>x.name.localeCompare(y.name));
+document.getElementById('productsGrid').innerHTML=a.length?a.map(p=>`<article class="card"><div class="pic"><button class="fav ${isFav(p.id)?'on':''}" onclick="fav(event,${p.id})">♥</button><span>${p.emoji}</span></div><div class="info"><div class="catText">${p.cat}</div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="rating">★★★★★ <span>${p.rating} · ${p.stock} в наличии</span></div><div class="foot"><div class="price">${money(p.price)} <small>/ шт.</small></div><button class="add" onclick="addToCart(${p.id})">+</button></div></div></article>`).join(''):'<p class="sub">Ничего не найдено.</p>';
+document.getElementById('heroProducts').textContent=data.products.length+'+';
+}
+function isFav(id){return JSON.parse(localStorage.getItem('fav'||'[]')||'[]').includes(id)}
+function fav(e,id){e.stopPropagation();let a=JSON.parse(localStorage.getItem('fav')||'[]');a=a.includes(id)?a.filter(x=>x!==id):[...a,id];localStorage.setItem('fav',JSON.stringify(a));renderProducts()}
+function addToCart(id){let p=data.products.find(x=>x.id===id);if(!p||p.stock<1)return toast('Товар закончился');data.cart[id]=(data.cart[id]||0)+1;if(data.cart[id]>p.stock)data.cart[id]=p.stock;save();renderCart();toast('Товар добавлен в корзину')}
+function changeQty(id,d){let p=data.products.find(x=>x.id===id);data.cart[id]=(data.cart[id]||0)+d;if(data.cart[id]<=0)delete data.cart[id];if(p&&data.cart[id]>p.stock)data.cart[id]=p.stock;save();renderCart()}
+function removeCart(id){delete data.cart[id];save();renderCart()}
+function renderCart(){
+let ids=Object.keys(data.cart);let total=0,count=0;
+document.getElementById('cartItems').innerHTML=ids.length?ids.map(id=>{let p=data.products.find(x=>x.id==id),q=data.cart[id];if(!p)return '';total+=p.price*q;count+=q;return `<div class="cartItem"><div class="cartEmoji">${p.emoji}</div><div class="cartInfo"><b>${p.name}</b><small>${money(p.price)} × ${q}</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${q}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><button class="remove" onclick="removeCart(${p.id})">🗑</button></div>`}).join(''):'<div class="empty">🛒<br><br>Корзина пока пуста</div>';
+document.getElementById('subtotal').textContent=money(total);document.getElementById('delivery').textContent=total?money(total>=500?0:30):money(0);document.getElementById('total').textContent=money(total+(total>=500?0:total?30:0));document.getElementById('cartCount').textContent=count;
+}
+function openCart(){document.getElementById('overlay').classList.add('open');document.getElementById('cart').classList.add('open');renderCart()}
+function closeCart(){document.getElementById('overlay').classList.remove('open');document.getElementById('cart').classList.remove('open')}
+function openLogin(){document.getElementById('loginModal').classList.add('show');document.getElementById('adminPass').focus()}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+function login(){let u=document.getElementById('adminLogin').value,p=document.getElementById('adminPass').value;if(u==='admin'&&p==='admin123'){sessionStorage.setItem('admin','1');closeModal('loginModal');showAdmin()}else document.getElementById('loginError').style.display='block'}
+function logout(){sessionStorage.removeItem('admin');document.getElementById('admin').classList.remove('show');document.getElementById('shop').style.display='block'}
+function showAdmin(){document.getElementById('shop').style.display='none';document.getElementById('admin').classList.add('show');renderAdmin()}
+function renderAdmin(){
+document.getElementById('aProducts').textContent=data.products.length;document.getElementById('aOrders').textContent=data.orders.length;document.getElementById('aSales').textContent=money(data.orders.reduce((s,o)=>s+o.total,0));document.getElementById('aSubs').textContent=data.subs.length;
+document.getElementById('adminProducts').innerHTML=data.products.map(p=>`<tr><td>${p.emoji} <b>${p.name}</b></td><td>${p.cat}</td><td>${money(p.price)}</td><td>${p.stock}</td><td><button class="smallBtn edit" onclick="openProductForm(${p.id})">Изменить</button> <button class="smallBtn del" onclick="deleteProduct(${p.id})">Удалить</button></td></tr>`).join('');
+document.getElementById('ordersTable').innerHTML=data.orders.length?data.orders.map(o=>`<tr><td>#${o.id}</td><td>${o.date}</td><td>${o.name}<br><small>${o.address}</small></td><td>${o.phone}</td><td><b>${money(o.total)}</b></td><td><select onchange="statusOrder(${o.id},this.value)"><option ${o.status==='Новый'?'selected':''}>Новый</option><option ${o.status==='В обработке'?'selected':''}>В обработке</option><option ${o.status==='Доставляется'?'selected':''}>Доставляется</option><option ${o.status==='Выполнен'?'selected':''}>Выполнен</option><option ${o.status==='Отменён'?'selected':''}>Отменён</option></select></td></tr>`).join(''):'<tr><td colspan="6">Заказов пока нет.</td></tr>';
+}
+function openProductForm(id){document.getElementById('editId').value=id||'';let p=data.products.find(x=>x.id===id);document.getElementById('productFormTitle').textContent=p?'Изменить товар':'Добавить товар';document.getElementById('pName').value=p?.name||'';document.getElementById('pCat').value=p?.cat||'Другие';document.getElementById('pPrice').value=p?.price||'';document.getElementById('pStock').value=p?.stock??'';document.getElementById('pEmoji').value=p?.emoji||'🍎';document.getElementById('pRating').value=p?.rating||5;document.getElementById('pDesc').value=p?.desc||'';document.getElementById('productModal').classList.add('show')}
+function saveProduct(){let id=+document.getElementById('editId').value;let obj={id:id||Date.now(),name:document.getElementById('pName').value.trim(),cat:document.getElementById('pCat').value,price:+document.getElementById('pPrice').value,stock:+document.getElementById('pStock').value,emoji:document.getElementById('pEmoji').value||'🍎',rating:+document.getElementById('pRating').value||5,desc:document.getElementById('pDesc').value.trim()};if(!obj.name||obj.price<0)return toast('Заполните название и цену');if(id){let i=data.products.findIndex(p=>p.id===id);data.products[i]=obj}else data.products.push(obj);save();closeModal('productModal');categories();renderProducts();renderAdmin();toast('Товар сохранён')}
+function deleteProduct(id){if(confirm('Удалить этот товар?')){data.products=data.products.filter(p=>p.id!==id);delete data.cart[id];save();categories();renderProducts();renderAdmin();toast('Товар удалён')}}
+function statusOrder(id,status){let o=data.orders.find(x=>x.id===id);if(o){o.status=status;save();renderAdmin()}}
+function openCheckout(){if(!Object.keys(data.cart).length)return toast('Сначала добавьте товар в корзину');closeCart();document.getElementById('checkoutModal').classList.add('show')}
+function placeOrder(){let name=document.getElementById('cName').value.trim(),phone=document.getElementById('cPhone').value.trim(),address=document.getElementById('cAddress').value.trim();if(!name||!phone||!address)return toast('Заполните все поля');let total=Object.entries(data.cart).reduce((s,[id,q])=>s+(data.products.find(p=>p.id==id)?.price||0)*q,0);total+=total<500?30:0;let items=Object.entries(data.cart).map(([id,q])=>({id:+id,q}));data.orders.push({id:1000+data.orders.length+1,date:new Date().toLocaleString('ru-RU'),name,phone,address,payment:document.getElementById('cPayment').value,total,items,status:'Новый'});data.cart={};data.products.forEach(p=>{let it=items.find(x=>x.id===p.id);if(it)p.stock=Math.max(0,p.stock-it.q)});save();closeModal('checkoutModal');renderCart();renderProducts();toast('Заказ принят! Спасибо за покупку ❤️')}
+function subscribe(e){e.preventDefault();let v=document.getElementById('email').value.trim();if(v&&!data.subs.includes(v)){data.subs.push(v);save()}document.getElementById('email').value='';toast('Вы подписались на новости!')}
+categories();renderProducts();renderCart();
+if(sessionStorage.getItem('admin')==='1')showAdmin();
+</script>
+</body>
+</html>
